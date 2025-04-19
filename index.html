@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance Monitoring System</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.css">
+</head>
+<body>
+    
+    <header class="header">
+        <div class="header-content">
+            <h1>Attendance Monitoring System</h1>
+            <div class="header-buttons">
+                <button class="btn btn-primary" id="reportsBtn">Reports</button>
+                <button class="btn btn-primary btn-settings" id="settingsBtn">Settings</button>
+                <button class="btn btn-primary btn-settings">
+                    <i class="fas fa-user"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="grid">
+            <!-- Left Column -->
+            <div class="column">
+                <!-- Controls -->
+                <div class="card">
+                    <div class="grid-2">
+                        <div>
+                            <label>Class:</label>
+                            <input type="text" id="classInput" value="CS101 - Introduction to CS">
+                        </div>
+                        <div>
+                            <label>Date:</label>
+                            <input type="text" id="dateInput" placeholder="Select date">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video Feed -->
+                <div class="video-feed">
+                    <!-- Replace with actual video feed -->
+                    <img id="videoStream" src="/video_feed" alt="Live Video Feed">
+                    <!-- Dynamic student tags will be added by JavaScript -->
+                </div>
+
+                <!-- Control Buttons -->
+                <div class="button-group">
+                    <button id="detectionBtn" class="btn btn-primary">Start Detection</button>
+                    <button id="resetBtn" class="btn btn-secondary">Reset</button>
+                    <button id="settingsBtn" class="btn btn-secondary btn-settings">Settings</button>
+                </div>
+
+                <!-- Statistics -->
+                <div class="card">
+                    <h2>Session Statistics</h2>
+                    <div class="stats-grid">
+                        <div class="stat-card blue">
+                            <div class="stat-value" id="attendanceRate">0%</div>
+                            <div class="stat-label">Attendance Rate</div>
+                        </div>
+                        <div class="stat-card green">
+                            <div class="stat-value" id="presentCount">0</div>
+                            <div class="stat-label">Present</div>
+                        </div>
+                        <div class="stat-card red">
+                            <div class="stat-value" id="absentCount">0</div>
+                            <div class="stat-label">Absent</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column -->
+            <div class="column">
+                <!-- Search and Session -->
+                <div class="card">
+                    <div class="grid-2">
+                        <div>
+                            <label>Session Time:</label>
+                            <select id="sessionInput" class="session-dropdown">
+                                <option value="morning">Morning (9:00 AM)</option>
+                                <option value="afternoon">Afternoon (1:00 PM)</option>
+                                <option value="evening">Evening (5:00 PM)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label>Search:</label>
+                            <input type="text" id="searchInput" placeholder="Search by name or ID...">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Attendance Table -->
+                <div class="card table-container">
+                    <table id="attendanceTable">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Status</th>
+                                <th>Time</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Will be populated by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="button-group">
+                    <button id="manualMarkBtn" class="btn btn-primary">Manual Mark</button>
+                    <button id="exportExcelBtn" class="btn btn-primary">Export to Excel</button>
+                    <button id="generateReportBtn" class="btn btn-primary">Generate Report</button>
+                </div>
+
+                <!-- Notifications -->
+                <div class="card">
+                    <h2>Recent Notifications</h2>
+                    <div id="notificationsContainer">
+                        <!-- Will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal for Manual Marking -->
+    <div id="manualMarkModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Manual Attendance Marking</h2>
+            <div class="form-group">
+                <label>Student ID:</label>
+                <input type="text" id="studentIdInput">
+            </div>
+            <div class="form-group">
+                <label>Student Name:</label>
+                <input type="text" id="studentNameInput">
+            </div>
+            <div class="form-group">
+                <label>Status:</label>
+                <select id="statusInput">
+                    <option value="Present">Present</option>
+                    <option value="Absent">Absent</option>
+                    <option value="Late">Late</option>
+                </select>
+            </div>
+            <button id="submitManualMark" class="btn btn-primary">Mark Attendance</button>
+        </div>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

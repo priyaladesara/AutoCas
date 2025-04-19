@@ -1,0 +1,39 @@
+# Ignore dataset and its subfolders
+dataset/
+
+# Ignore experiments folder
+experiments/
+
+# Ignore gfpgan folder
+gfpgan/
+
+# Ignore node_modules (standard for Node.js)
+node_modules/
+
+# Python-related ignores
+__pycache__/
+*.py[cod]
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+
+# VSCode settings (optional)
+.vscode/
+
+# Environment files
+.env
+*.env
+
+# PyTorch / TensorFlow model checkpoints
+*.pt
+*.pth
+*.h5
+
+# Ignore logs and output
+*.log
+*.out
+
+# Ignore compiled JS files (optional, if using TypeScript)
+*.js.map
