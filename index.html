@@ -32,19 +32,44 @@
                     <div class="grid-2">
                         <div>
                             <label>Class:</label>
-                            <input type="text" id="classInput" value="CS101 - Introduction to CS">
+                            <input type="text" id="classInput" value="ICT 22">
                         </div>
                         <div>
                             <label>Date:</label>
                             <input type="text" id="dateInput" placeholder="Select date">
                         </div>
+                        <div class="selection-controls">
+                            <div class="control-group">
+                              <label for="semester">Semester:</label>
+                              <select id="semester" class="form-control">
+                                <option value="sem6">Semester 6</option>
+                                <!-- Add other semesters as needed -->
+                              </select>
+                            </div>
+                            
+                            <div class="control-group">
+                              <label for="division">Division:</label>
+                              <select id="division" class="form-control">
+                                <option value="div1">Division 1</option>
+                                <option value="div2">Division 2</option>
+                                <option value="div3">Division 3</option>
+                              </select>
+                            </div>
+                            
+                            <div class="control-group">
+                              <label for="course">Course:</label>
+                              <select id="course" class="form-control">
+                                <!-- This will be populated dynamically based on semester -->
+                              </select>
+                            </div>
+                          </div>
                     </div>
                 </div>
 
                 <!-- Video Feed -->
                 <div class="video-feed">
                     <!-- Replace with actual video feed -->
-                    <img id="videoStream" src="/video_feed" alt="Live Video Feed">
+                    <img id="videoStream" src="/video_feed" alt="Live Video Feed" class="video-stream">
                     <!-- Dynamic student tags will be added by JavaScript -->
                 </div>
 
@@ -55,24 +80,7 @@
                     <button id="settingsBtn" class="btn btn-secondary btn-settings">Settings</button>
                 </div>
 
-                <!-- Statistics -->
-                <div class="card">
-                    <h2>Session Statistics</h2>
-                    <div class="stats-grid">
-                        <div class="stat-card blue">
-                            <div class="stat-value" id="attendanceRate">0%</div>
-                            <div class="stat-label">Attendance Rate</div>
-                        </div>
-                        <div class="stat-card green">
-                            <div class="stat-value" id="presentCount">0</div>
-                            <div class="stat-label">Present</div>
-                        </div>
-                        <div class="stat-card red">
-                            <div class="stat-value" id="absentCount">0</div>
-                            <div class="stat-label">Absent</div>
-                        </div>
-                    </div>
-                </div>
+                
             </div>
 
             <!-- Right Column -->
@@ -116,7 +124,6 @@
                 <div class="button-group">
                     <button id="manualMarkBtn" class="btn btn-primary">Manual Mark</button>
                     <button id="exportExcelBtn" class="btn btn-primary">Export to Excel</button>
-                    <button id="generateReportBtn" class="btn btn-primary">Generate Report</button>
                 </div>
 
                 <!-- Notifications -->
@@ -126,35 +133,29 @@
                         <!-- Will be populated by JavaScript -->
                     </div>
                 </div>
+                <!-- Statistics -->
+                <div class="card">
+                    <h2>Session Statistics</h2>
+                    <div class="stats-grid">
+                        <div class="stat-card blue">
+                            <div class="stat-value" id="attendanceRate">0%</div>
+                            <div class="stat-label">Attendance Rate</div>
+                        </div>
+                        <div class="stat-card green">
+                            <div class="stat-value" id="presentCount">0</div>
+                            <div class="stat-label">Present</div>
+                        </div>
+                        <div class="stat-card red">
+                            <div class="stat-value" id="absentCount">0</div>
+                            <div class="stat-label">Absent</div>
+                        </div>
+                    </div>
+                </div>
+
+                </div>
             </div>
         </div>
     </main>
-
-    <!-- Modal for Manual Marking -->
-    <div id="manualMarkModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Manual Attendance Marking</h2>
-            <div class="form-group">
-                <label>Student ID:</label>
-                <input type="text" id="studentIdInput">
-            </div>
-            <div class="form-group">
-                <label>Student Name:</label>
-                <input type="text" id="studentNameInput">
-            </div>
-            <div class="form-group">
-                <label>Status:</label>
-                <select id="statusInput">
-                    <option value="Present">Present</option>
-                    <option value="Absent">Absent</option>
-                    <option value="Late">Late</option>
-                </select>
-            </div>
-            <button id="submitManualMark" class="btn btn-primary">Mark Attendance</button>
-        </div>
-    </div>
-    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.js"></script>
     <script src="script.js"></script>
 </body>

@@ -35,5 +35,5 @@ build/
 *.log
 *.out
 
-# Ignore compiled JS files (optional, if using TypeScript)
+# Ignore compiled JS files 
 *.js.map
